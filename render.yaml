@@ -13,7 +13,7 @@ services:
   # 2. Control Plane (Angular)
   - type: static
     name: time-machine-control-plane
-    env: static
+    name: time-machine-control-plane
     rootDir: frontend/angular-admin
     # Magic Build Command: 
     # 1. Installs dependencies
