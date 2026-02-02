@@ -19,7 +19,8 @@ services:
     # 1. Installs dependencies
     # 2. Builds the Angular app
     # 3. Creates the production env.js file dynamically using the Backend URL
-    buildCommand: npm install && npm run build && echo "window.env = { backendUrl: '$BACKEND_URL' };" > dist/angular-admin/browser/assets/env.js
+    buildCommand: |
+      npm install && npm run build && echo "window.env = { backendUrl: '$BACKEND_URL' };" > dist/angular-admin/browser/assets/env.js
     publishDir: dist/angular-admin/browser
     envVars:
       - key: BACKEND_URL
