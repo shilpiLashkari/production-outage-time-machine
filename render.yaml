@@ -10,10 +10,9 @@ services:
       - key: PORT
         value: "3001"
 
+staticSites:
   # 2. Control Plane (Angular)
-  - type: static
-    name: time-machine-control-plane
-    name: time-machine-control-plane
+  - name: time-machine-control-plane
     rootDir: frontend/angular-admin
     # Magic Build Command: 
     # 1. Installs dependencies
@@ -30,9 +29,7 @@ services:
           property: url
 
   # 3. Analytics Dashboard (React)
-  - type: static
-    name: time-machine-analytics
-    env: static
+  - name: time-machine-analytics
     rootDir: frontend/react-analytics
     buildCommand: npm install && npm run build
     publishDir: build
