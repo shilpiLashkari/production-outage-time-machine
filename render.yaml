@@ -18,27 +18,30 @@ services:
     # Magic Build Command: 
     # 1. Installs dependencies
     # 2. Builds the Angular app
-    # 3. Creates the production env.js file dynamically using the Backend URL
+    # 3. Creates the production env.js file dynamically using 'https://' + BACKEND_HOST
     buildCommand: |
-      npm install && npm run build && echo "window.env = { backendUrl: '$BACKEND_URL' };" > dist/angular-admin/browser/assets/env.js
+      npm install && npm run build && echo "window.env = { backendUrl: 'https://$BACKEND_HOST' };" > dist/angular-admin/browser/assets/env.js
     staticPublishPath: dist/angular-admin/browser
     envVars:
-      - key: BACKEND_URL
+      - key: BACKEND_HOST
         fromService:
           type: web
           name: time-machine-backend
-          property: url
+          property: host
 
   # 3. Analytics Dashboard (React) - Static Site
   - type: web
     name: time-machine-analytics
     env: static
     rootDir: frontend/react-analytics
-    buildCommand: npm install && npm run build
+    # Construct Full URL for React
+    buildCommand: |
+      export REACT_APP_BACKEND_URL="https://$BACKEND_HOST"
+      npm install && npm run build
     staticPublishPath: build
     envVars:
-      - key: REACT_APP_BACKEND_URL
+      - key: BACKEND_HOST
         fromService:
           type: web
           name: time-machine-backend
-          property: url
+          property: host
