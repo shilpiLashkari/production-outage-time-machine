@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  # 1. The Brain (Backend)
+  backend:
+    build: ./backend/realtime-server
+    ports:
+      - "3001:3001"
+    networks:
+      - time-machine-net
+
+  # 2. Control Plane (Angular)
+  angular-admin:
+    build: ./frontend/angular-admin
+    ports:
+      - "4200:80"
+    depends_on:
+      - backend
+    networks:
+      - time-machine-net
+
+  # 3. Data Plane (React)
+  react-analytics:
+    build: ./frontend/react-analytics
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    networks:
+      - time-machine-net
+
+networks:
+  time-machine-net:
+    driver: bridge

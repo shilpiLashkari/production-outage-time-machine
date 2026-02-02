@@ -1,0 +1,15 @@
+{
+    "name": "replay-engine-node",
+    "version": "1.0.0",
+    "description": "Deterministic Replay Engine for Production Outage Time-Machine",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "dependencies": {
+        "express": "^4.18.2",
+        "dotenv": "^16.3.1",
+        "pg": "^8.11.3",
+        "mongodb": "^6.1.0"
+    }
+}

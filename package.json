@@ -1,0 +1,19 @@
+{
+    "name": "production-outage-time-machine-root",
+    "version": "1.0.0",
+    "description": "Root orchestrator for Production Outage Time-Machine",
+    "scripts": {
+        "install:all": "npm install && cd backend/api-gateway-node && npm install && cd ../ingestion-node && npm install && cd ../auth-node && npm install && cd ../replay-engine-node && npm install",
+        "start": "concurrently \"npm run start:gateway\" \"npm run start:ingest\" \"npm run start:auth\" \"npm run start:replay\"",
+        "start:gateway": "cd backend/api-gateway-node && npm start",
+        "start:ingest": "cd backend/ingestion-node && npm start",
+        "start:auth": "cd backend/auth-node && npm start",
+        "start:replay": "cd backend/replay-engine-node && npm start",
+        "start:admin": "cd frontend/angular-admin && npm start",
+        "start:analytics": "cd frontend/react-analytics && npm start",
+        "install:frontend": "cd frontend/angular-admin && npm install && cd ../react-analytics && npm install"
+    },
+    "dependencies": {
+        "concurrently": "^8.2.1"
+    }
+}

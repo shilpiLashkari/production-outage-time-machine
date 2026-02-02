@@ -1,0 +1,43 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Testing
+coverage/
+
+# Production
+dist/
+build/
+out/
+
+# Misc
+.DS_Store
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDEs
+.vscode/
+.idea/
+
+# Backend
+backend/realtime-server/node_modules
+backend/realtime-server/*.log
+
+# Angular
+frontend/angular-admin/node_modules
+frontend/angular-admin/dist
+frontend/angular-admin/.angular
+
+# React
+frontend/react-analytics/node_modules
+frontend/react-analytics/build

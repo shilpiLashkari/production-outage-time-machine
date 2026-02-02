@@ -1,0 +1,152 @@
+/* Control Room Dark Theme - Cyberpunk Edition */
+:root {
+  --bg-dark: #0b0c10;
+  --bg-panel: rgba(31, 40, 51, 0.9);
+  --text-primary: #c5c6c7;
+  --text-highlight: #66fcf1;
+  --accent-color: #45a29e;
+  --danger-color: #ff4b4b;
+  --success-color: #4caf50;
+  --warning-color: #ffc107;
+  --neon-glow: 0 0 10px rgba(102, 252, 241, 0.4);
+  --font-family: 'Roboto', sans-serif;
+  --border-color: rgba(69, 162, 158, 0.3);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  font-family: var(--font-family);
+  overflow: hidden;
+  background-image: radial-gradient(circle at 50% 50%, #111 0%, #000 100%);
+}
+
+.control-room-container {
+  display: grid;
+  grid-template-rows: 70px 1fr;
+  height: 100vh;
+}
+
+header {
+  background-color: rgba(11, 12, 16, 0.8);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  padding: 0 30px;
+  border-bottom: 1px solid var(--border-color);
+  justify-content: space-between;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+h1 {
+  font-size: 1.4rem;
+  color: var(--text-highlight);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin: 0;
+  text-shadow: var(--neon-glow);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.status-indicator {
+  font-size: 0.9rem;
+  color: #fff;
+  background: var(--success-color);
+  padding: 6px 12px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px var(--success-color);
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+main {
+  padding: 30px;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 30px;
+}
+
+.sidebar,
+.content-area {
+  background-color: var(--bg-panel);
+  border-radius: 12px;
+  padding: 25px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+}
+
+h2,
+h3 {
+  color: var(--text-highlight);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 0;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+/* Card Styles */
+.card {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 20px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border-left: 4px solid var(--accent-color);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateX(5px);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.card h3 {
+  font-size: 1rem;
+  margin: 0 0 5px 0;
+  border: none;
+  padding: 0;
+  color: #fff;
+}
+
+.card p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.card.critical {
+  border-left-color: var(--danger-color);
+  background: rgba(255, 75, 75, 0.1);
+}
+
+.card.warning {
+  border-left-color: var(--warning-color);
+}
+
+/* Scrubber Override */
+.scrubber-container {
+  border-color: var(--text-highlight) !important;
+  box-shadow: 0 0 15px rgba(102, 252, 241, 0.1);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-color);
+  border-radius: 4px;
+}

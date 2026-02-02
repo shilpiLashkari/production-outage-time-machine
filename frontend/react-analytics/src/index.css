@@ -1,0 +1,75 @@
+/* Global Styles & Variables */
+:root {
+    --bg-dark: #0b0c10;
+    --bg-panel: #1f2833;
+    --text-primary: #c5c6c7;
+    --accent-cyan: #66fcf1;
+    --accent-teal: #45a29e;
+    --neon-glow: 0 0 10px rgba(102, 252, 241, 0.5);
+    --glass-bg: rgba(31, 40, 51, 0.8);
+    --border-color: rgba(69, 162, 158, 0.3);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+/* Scrollbar Customization */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-dark);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--accent-teal);
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-cyan);
+    box-shadow: 0 0 5px var(--accent-cyan);
+}
+
+/* Responsive Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Utility Classes */
+.glass-panel {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.glass-panel:hover {
+    box-shadow: 0 0 15px rgba(69, 162, 158, 0.2);
+    border-color: var(--accent-teal);
+}
+
+h1, h2, h3 {
+    color: var(--accent-cyan);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-top: 0;
+    text-shadow: 0 0 5px rgba(102, 252, 241, 0.3);
+}
+
+.text-truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
