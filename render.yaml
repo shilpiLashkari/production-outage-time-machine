@@ -10,9 +10,10 @@ services:
       - key: PORT
         value: "3001"
 
-staticSites:
-  # 2. Control Plane (Angular)
-  - name: time-machine-control-plane
+  # 2. Control Plane (Angular) - Static Site
+  - type: web
+    name: time-machine-control-plane
+    env: static
     rootDir: frontend/angular-admin
     # Magic Build Command: 
     # 1. Installs dependencies
@@ -20,7 +21,7 @@ staticSites:
     # 3. Creates the production env.js file dynamically using the Backend URL
     buildCommand: |
       npm install && npm run build && echo "window.env = { backendUrl: '$BACKEND_URL' };" > dist/angular-admin/browser/assets/env.js
-    publishDir: dist/angular-admin/browser
+    staticPublishPath: dist/angular-admin/browser
     envVars:
       - key: BACKEND_URL
         fromService:
@@ -28,11 +29,13 @@ staticSites:
           name: time-machine-backend
           property: url
 
-  # 3. Analytics Dashboard (React)
-  - name: time-machine-analytics
+  # 3. Analytics Dashboard (React) - Static Site
+  - type: web
+    name: time-machine-analytics
+    env: static
     rootDir: frontend/react-analytics
     buildCommand: npm install && npm run build
-    publishDir: build
+    staticPublishPath: build
     envVars:
       - key: REACT_APP_BACKEND_URL
         fromService:
