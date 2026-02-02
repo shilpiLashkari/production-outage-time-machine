@@ -4,6 +4,15 @@
 
 That's why I built this.
 
+## 🌐 Live Demo
+
+**Try it now (deployed on Render):**
+*   **🎯 Control Room (Angular)**: [https://time-machine-control-plane.onrender.com](https://time-machine-control-plane.onrender.com)
+*   **📊 Analytics Dashboard (React)**: [https://time-machine-analytics.onrender.com](https://time-machine-analytics.onrender.com)
+*   **⚙️ Backend API**: [https://time-machine-backend-rg2s.onrender.com](https://time-machine-backend-rg2s.onrender.com)
+
+> **Note**: Free tier services spin down after inactivity. First load may take ~50 seconds.
+
 ---
 
 <details open>
