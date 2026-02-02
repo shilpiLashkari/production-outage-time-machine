@@ -2,7 +2,7 @@ services:
   # 1. Backend Service (Node.js)
   - type: web
     name: time-machine-backend
-    env: node
+    runtime: node
     rootDir: backend/realtime-server
     buildCommand: npm install
     startCommand: npm start
@@ -14,7 +14,7 @@ services:
   # 2. Control Plane (Angular) - Static Site
   - type: web
     name: time-machine-control-plane
-    env: static
+    runtime: static
     rootDir: frontend/angular-admin
     # Magic Build Command: 
     # 1. Installs dependencies
@@ -33,7 +33,7 @@ services:
   # 3. Analytics Dashboard (React) - Static Site
   - type: web
     name: time-machine-analytics
-    env: static
+    runtime: static
     rootDir: frontend/react-analytics
     # Construct Full URL for React
     buildCommand: |
