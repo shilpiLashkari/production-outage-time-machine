@@ -6,6 +6,7 @@ services:
     rootDir: backend/realtime-server
     buildCommand: npm install
     startCommand: npm start
+    plan: free
     envVars:
       - key: PORT
         value: "3001"
@@ -14,6 +15,7 @@ services:
   - type: web
     name: time-machine-control-plane
     env: static
+    plan: free
     rootDir: frontend/angular-admin
     # Magic Build Command: 
     # 1. Installs dependencies
@@ -33,6 +35,7 @@ services:
   - type: web
     name: time-machine-analytics
     env: static
+    plan: free
     rootDir: frontend/react-analytics
     # Construct Full URL for React
     buildCommand: |
