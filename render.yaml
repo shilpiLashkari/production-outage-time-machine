@@ -21,7 +21,7 @@ services:
     # 2. Builds the Angular app
     # 3. Creates the production env.js file dynamically using 'https://' + BACKEND_HOST
     buildCommand: |
-      npm install && npm run build && echo "window.env = { backendUrl: 'https://$BACKEND_HOST' };" > dist/angular-admin/browser/assets/env.js
+      npm install && npm run build && echo "window.env = { backendUrl: 'https://$BACKEND_HOST.onrender.com' };" > dist/angular-admin/browser/assets/env.js
     staticPublishPath: dist/angular-admin/browser
     envVars:
       - key: BACKEND_HOST
@@ -37,7 +37,7 @@ services:
     rootDir: frontend/react-analytics
     # Construct Full URL for React
     buildCommand: |
-      export REACT_APP_BACKEND_URL="https://$BACKEND_HOST"
+      export REACT_APP_BACKEND_URL="https://$BACKEND_HOST.onrender.com"
       npm install && npm run build
     staticPublishPath: build
     envVars:
